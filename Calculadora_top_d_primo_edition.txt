@@ -1,0 +1,207 @@
+programa
+{
+	inclua biblioteca Matematica --> mat
+
+	funcao cadeia helloworld ()
+	{
+		cadeia resultado
+		resultado = ("Hello world!")
+		retorne resultado
+	}
+	
+	funcao cabecalho () 
+	{
+		limpa()
+		escreva ("\t\t\tCalculadora top d+\n\nEscolha a operação:\n1 - adição\n2 - subtração\n3 - multiplicação\n4 - divisão\n5 - potência\n6 - radiciação\n7 - logaritmo\n8 - equação segundo grau\n9- verificar primo\n\n")
+	}
+	
+	funcao cadeia mais ()
+	{
+		real x, y, z 
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = x + y 
+		resultado = (x + " + " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia menos ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = x - y 
+		resultado = (x + " - " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia vezes ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = x * y 
+		resultado = (x + " * " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia dividir ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = x / y 
+		resultado = (x + " / " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia potencia ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = mat.potencia (x, y) 
+		resultado = (x + " ^ " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia raiz ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = mat.raiz (x, y) 
+		resultado = (y + " √ " + x + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia logaritmo ()
+	{
+		real x, y, z
+		cadeia resultado
+		escreva("Insira o primeiro número: ")
+		leia (x) 
+		escreva("Insira o segundo número: ")
+		leia (y)
+		z = mat.logaritmo (x, y) 
+		resultado = ("log (" + x + " ) " + y + " = " + z)
+		retorne resultado
+	}
+	
+	funcao cadeia segundograu ()
+	{ 
+		real a, b, c
+		real delta, x1, x2
+		cadeia resultado 
+		
+		escreva("Insira 'a': ")
+		leia (a) 
+		escreva("Insira 'b': ")
+		leia (b) 
+		escreva("Insira 'c': ") 
+		leia (c)
+		
+		delta = mat.potencia (b, 2.0) * 4 * a * c 
+		x1 = (- b + mat.raiz (delta, 2.0)) / (2 * a)
+		x2 = (- b - mat.raiz (delta, 2.0)) / (2 * a)
+		
+		resultado = ("∆ = " + delta + "\nx1 = " + x1 + "\nx2 = " + x2)
+		retorne resultado
+	}
+	
+	funcao cadeia primo () 
+	{
+		inteiro x, i, j 
+		cadeia resultado
+
+		escreva("Insira o número: ")
+		leia(x) 
+		
+		j = 0
+		para (i = x - 1; i > 2; i--) 
+		{
+			se (x % i == 0) 
+			{
+				j++
+			} 
+		}
+		
+		se (j == 0)
+		{
+			resultado = (x + " é primo")
+		}
+		senao 
+		{
+			resultado = (x + " não é primo")
+		}
+
+		retorne resultado
+	}
+	funcao inicio ()
+	{
+		inteiro op 
+		real num1, num2, num3 
+		cadeia resul
+		enquanto (verdadeiro)
+		{
+			cabecalho()
+			leia (op) 
+			limpa()
+			
+			escolha (op)
+			{
+				caso 0:
+					resul = helloworld()
+				pare
+				caso 1: 
+					resul = mais () 
+				pare
+				caso 2: 
+				resul = menos ()
+				pare
+				caso 3: 
+					resul = vezes ()
+				pare
+				caso 4: 
+					resul = dividir ()
+				pare
+				caso 5: 
+				resul = potencia ()
+				pare
+				caso 6: 
+					resul = raiz () 
+				pare
+				caso 7: 
+					resul = logaritmo ()
+				pare
+				caso 8: 
+					resul = segundograu ()
+				pare 
+				caso 9: 
+					resul = primo()
+				pare
+			}
+			limpa()
+			escreva("\t\t\t\tO resultado é: \n" + resul + "\n\n Pressione ENTER para voltar para a tela inicial.")
+			leia (op)
+		}
+	}
+}
